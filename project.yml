@@ -1,12 +1,12 @@
-# XcodeGen spec. Generates LexioReader.xcodeproj from the source tree so the
+# XcodeGen spec. Generates LivelyReading.xcodeproj from the source tree so the
 # project file never has to be hand-edited or committed.
 #
 #   brew install xcodegen   # once
-#   cd ios && xcodegen generate && open LexioReader.xcodeproj
+#   xcodegen generate && open LivelyReading.xcodeproj
 #
-name: LexioReader
+name: LivelyReading
 options:
-  bundleIdPrefix: site.lexio
+  bundleIdPrefix: com.livelyreading
   deploymentTarget:
     iOS: "16.0"
   createIntermediateGroups: true
@@ -22,16 +22,16 @@ settings:
     GENERATE_INFOPLIST_FILE: NO
 
 targets:
-  LexioReader:
+  LivelyReading:
     type: application
     platform: iOS
     deploymentTarget: "16.0"
     sources:
-      - path: LexioReader
+      - path: LivelyReading
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: site.lexio.reader
-        PRODUCT_NAME: LexioReader
-        INFOPLIST_FILE: LexioReader/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.livelyreading.app
+        PRODUCT_NAME: LivelyReading
+        INFOPLIST_FILE: LivelyReading/Info.plist
         TARGETED_DEVICE_FAMILY: "1,2"   # iPhone + iPad
         ENABLE_PREVIEWS: YES

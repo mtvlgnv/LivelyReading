@@ -8,7 +8,7 @@ enum Config {
     static let apiBaseURL = URL(string: "https://lexio.site")!
 
     /// User-facing product name.
-    static let appName = "Lexio"
+    static let appName = "Lively Reading"
 
     /// Where free users are sent to upgrade. Stripe Checkout lives on the web;
     /// there is no in-app purchase yet, so we open the marketing section.

@@ -7,8 +7,11 @@ its *contextual* meaning (not a generic dictionary entry) in a popup, and save
 words to a word bank.
 
 - Repo: **github.com/mtvlgnv/LivelyReading** (public). Local: `/Users/mtvlgnv/LivelyReading`.
-- The Xcode target / bundle id is `LexioReader` / `site.lexio.reader` (the repo
-  name differs — no full rebrand done yet).
+- The Xcode target / bundle id is `LivelyReading` / `com.livelyreading.app`.
+  The app was rebranded from "Lexio"/"LexioReader" (identity + UI only). Two
+  internal symbols deliberately keep the Lexio name because they refer to the
+  underlying engine: the API client `LexioAPI` and the brand palette
+  `Color.lexioAccent`/`lexioAccentSoft`.
 
 ## Backend (separate repo)
 This app is a client of **Lexio**, a FastAPI backend live at **https://lexio.site**
@@ -19,22 +22,22 @@ This app is a client of **Lexio**, a FastAPI backend live at **https://lexio.sit
   `GET/POST /wordbank*`.
 - `GET /api/catalog` + `GET /api/catalog/{slug}` — the public-domain book catalog
   (multi-language Project Gutenberg classics) the Discover tab imports from.
-Base URL is `LexioReader/Config.swift` → `apiBaseURL` (prod = https://lexio.site;
+Base URL is `LivelyReading/Config.swift` → `apiBaseURL` (prod = https://lexio.site;
 point at http://localhost:8000 for local backend dev).
 
 ## Build & run
 No `.xcodeproj` is committed — it's generated from `project.yml` via XcodeGen:
 ```bash
 brew install xcodegen        # once
-xcodegen generate            # produces LexioReader.xcodeproj
-open LexioReader.xcodeproj    # ⌘R on a simulator
+xcodegen generate            # produces LivelyReading.xcodeproj
+open LivelyReading.xcodeproj  # ⌘R on a simulator
 ```
 `build/` and `*.xcodeproj/` are gitignored.
 
 ## Structure
 ```
-LexioReader/
-├─ LexioReaderApp.swift   @main; injects AppState + LibraryStore + WordBankStore
+LivelyReading/
+├─ LivelyReadingApp.swift @main; injects AppState + LibraryStore + WordBankStore
 ├─ Config.swift           apiBaseURL, flags
 ├─ Models/                Definition, WordBankEntry, ReadingItem, ReadingMode,
 │                         Language, Account, CatalogBook
@@ -67,4 +70,9 @@ LexioReader/
 2. Native upgrade flow (currently links to web Stripe Checkout).
 3. EPUB / Share-extension import; chapter model for long books.
 4. App icon & launch art (system defaults for now).
-5. Optional full rebrand from "Lexio"/"LexioReader" to "LivelyReading".
+
+## Done
+- Full rebrand to "Lively Reading" (identity + UI): target `LivelyReading`,
+  bundle `com.livelyreading.app`, display name "Lively Reading", source folder
+  `LivelyReading/`, `@main struct LivelyReadingApp`. Internal `LexioAPI` and
+  `Color.lexioAccent*` kept on purpose (they name the underlying engine).

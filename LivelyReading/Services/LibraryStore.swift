@@ -54,12 +54,12 @@ final class LibraryStore: ObservableObject {
     /// A single welcoming sample so the reader isn't empty on first launch.
     private static let seed: [ReadingItem] = [
         ReadingItem(
-            title: "Welcome to Lexio",
+            title: "Welcome to Lively Reading",
             body: """
             Tap any word to see what it means — not in the abstract, but right \
             here, in this sentence, the way it's actually being used.
 
-            Lexio reads the surrounding context and explains the word's \
+            Lively Reading reads the surrounding context and explains the word's \
             contextual meaning, its part of speech, pronunciation, and \
             etymology. Save the ones worth remembering to your word bank.
 

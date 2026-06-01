@@ -4,7 +4,7 @@ import Security
 /// Minimal Keychain wrapper for the session token. Stored as a generic
 /// password under a single account key.
 enum KeychainStore {
-    private static let service = "site.lexio.reader"
+    private static let service = "com.livelyreading.app"
     private static let account = "session-token"
 
     static func save(_ token: String) {

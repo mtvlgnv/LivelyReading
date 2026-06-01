@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct LexioReaderApp: App {
+struct LivelyReadingApp: App {
     @StateObject private var app = AppState()
     @StateObject private var library = LibraryStore()
     @StateObject private var wordBank = WordBankStore()
